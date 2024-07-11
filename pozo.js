@@ -10,23 +10,6 @@ const idPanel = 1;
 
 async function init() {
   await getUser();
-  rotateImages();
-}
-
-function rotateImages() {
-  const interval = 10 * 60 * 1000; // 2 minutos en milisegundos
-  let currentIndex = 0;
-  const contents = [content1, content2, content3];
-
-  setInterval(() => {
-    contents.forEach((content, index) => {
-      content.style.display = index === currentIndex ? "block" : "none";
-    });
-    currentIndex = (currentIndex + 1) % contents.length;
-  }, interval);
-
-  // Inicialmente mostrar la primera imagen
-  contents[0].style.display = "block";
 }
 
 async function getUser() {
@@ -46,7 +29,6 @@ async function getUser() {
   const palabraFecha = palabras[1];
   const unir = palabraDia + "," + palabraFecha;
   document.getElementById('title1').innerHTML = result + '°';
-  content3.style.display = "block";
   function formatAMPM(date) {
     let hours = date.getHours();
     let minutes = date.getMinutes();
